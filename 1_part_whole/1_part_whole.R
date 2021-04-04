@@ -24,4 +24,6 @@ ggplot(data=dth_data, aes(x=group, y=Percent, label = round(Percent,1), fill=Dis
   theme(legend.position="top") +
   ggtitle("Provisional 2020 Deaths, Australia") +
   theme(plot.title=element_text(family="Trebuchet MS", face="bold", size=20)) + geom_bar_text(position = "stack", reflow = TRUE)
-  
+
+#Save chart
+ggsave("1_part_whole/aus_dths_2020.png", device = "png", type = "cairo", width = 8, height = 6) #Use device= and type= to stop images being pixelated  
