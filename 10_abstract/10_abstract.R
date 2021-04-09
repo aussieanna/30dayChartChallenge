@@ -1,6 +1,7 @@
 
 library(tidyverse)
 library(ggfx)
+library(patchwork)
 
 #Generate data frame with random numbers
 dataset <- data.frame(x=rnorm(1000), y=rnorm(1000))
@@ -14,6 +15,8 @@ p1 <- ggplot(dataset, aes(x,y)) +
   theme_void() +
   coord_polar() + 
   theme(plot.background = element_rect(fill = "black", color = "black"))
+
+p1
 
 ggsave(p1, "10_abstract/10_abstract.png", plot = p1, device = "png", type = "cairo", width = 8, height = 8) #Use device= and type= to stop images being pixelated
 
@@ -38,7 +41,7 @@ dataset3 <- data.frame(x=rnorm(1000), y=rnorm(1000))
 #plot data
 p3 <- ggplot(dataset3, aes(x,y)) +
   geom_line(colour="turquoise") + 
-  with_blur(geom_point(shape=8, colour="orange", size=3),
+  with_blur(geom_point(shape=8, colour="purple", size=3),
             sigma = unit(0.5, 'mm')
   ) +
   theme_void() +
@@ -47,3 +50,7 @@ p3 <- ggplot(dataset3, aes(x,y)) +
 p3
 
 ggsave("10_abstract/10_abstract3.png", plot = p3, device = "png", type = "cairo", width = 8, height = 8) #Use device= and type= to stop images being pixelated
+
+#Combine plots
+
+p1 + p2 + p3
