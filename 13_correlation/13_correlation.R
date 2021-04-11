@@ -31,7 +31,7 @@ t <- data_sum %>% gt_preview()
 #Chart data sets
 p <- ggplot(df_all, aes(x=x, y=y, colour=name))+
   geom_point()+
-  theme_void(base_family = "IBM Plex Sans")+
+  theme_void(base_family = "Inria Sans")+
   theme(legend.position = "none")+
   facet_wrap(~name, ncol=2) + 
   scale_colour_viridis_d() +                                      # Add regression line
